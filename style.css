@@ -1,0 +1,398 @@
+/* =========================================================
+   STYLE.CSS — Sito personale statico
+   Modifica qui i colori, i font o le dimensioni globali.
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+/* ---------- RESET ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; min-width: 0; }
+html, body { height: 100%; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ---------- VARIABILI ---------- */
+:root {
+  --bg: #ffffff;
+  --text: #1a1a1f;
+  --muted: #6b6b78;
+  --card: #ffffff;
+  --border: #ececf2;
+  --shadow: 0 6px 20px rgba(20, 20, 40, 0.06);
+  --shadow-strong: 0 10px 30px rgba(20, 20, 40, 0.12);
+  --radius: 18px;
+  --radius-sm: 12px;
+
+  /* Accenti per pagina */
+  --accent-home: #6b7280;
+  --accent-task: #ef4444;
+  --accent-utente: #8b5cf6;
+  --accent-calcio: #2563eb;
+  --accent-infortuni: #16a34a;
+  --accent-allenamento: #f97316;
+  --accent-professione: #334155;
+}
+
+/* ---------- BASE ---------- */
+body {
+  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100%;
+  padding-bottom: 90px; /* spazio per la bottom nav */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Sfumatura di pagina (fascia alta) — cambia colore in base alla classe sul <body> */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 320px;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 100%, transparent);
+  pointer-events: none;
+}
+body.page-home::before    { background: linear-gradient(180deg, rgba(107,114,128,.18), rgba(255,255,255,0)); }
+body.page-task::before    { background: linear-gradient(180deg, rgba(239, 68, 68,.20), rgba(255,255,255,0)); }
+body.page-utente::before  { background: linear-gradient(180deg, rgba(139, 92,246,.22), rgba(255,255,255,0)); }
+body.page-calcio::before  { background: linear-gradient(180deg, rgba( 37, 99,235,.20), rgba(255,255,255,0)); }
+body.page-allenamento::before { background: linear-gradient(180deg, rgba(249,115, 22,.22), rgba(255,255,255,0)); }
+body.page-professione::before { background: linear-gradient(180deg, rgba( 51, 65, 85,.18), rgba(255,255,255,0)); }
+
+/* ---------- LAYOUT ---------- */
+.container {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 28px 18px 24px;
+}
+
+/* ---------- HEADER ---------- */
+.app-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 22px;
+}
+.app-header .eyebrow {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.app-header h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.app-header p { color: var(--muted); font-size: 15px; }
+
+/* ---------- CARD ---------- */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  margin-bottom: 14px;
+}
+.card h2 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+.card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+.card p  { color: var(--muted); font-size: 14px; line-height: 1.45; }
+
+.card-title-row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; margin-bottom: 10px;
+}
+
+/* ---------- HOME — card di navigazione ---------- */
+.nav-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.nav-card {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 22px 18px;
+  border-radius: var(--radius);
+  color: #fff;
+  box-shadow: var(--shadow-strong);
+  min-height: 140px;
+  justify-content: space-between;
+  transition: transform .15s ease;
+}
+.nav-card:active { transform: scale(.97); }
+.nav-card .icon { font-size: 30px; }
+.nav-card .label { font-size: 17px; font-weight: 700; }
+.nav-card.task        { background: linear-gradient(135deg, #ef4444, #f97316); }
+.nav-card.utente      { background: linear-gradient(135deg, #8b5cf6, #ec4899); }
+.nav-card.calcio      { background: linear-gradient(135deg, #2563eb, #06b6d4); }
+.nav-card.allenamento { background: linear-gradient(135deg, #f97316, #facc15); }
+
+/* ---------- TASK ---------- */
+.date-pill {
+  display: inline-block;
+  background: var(--accent-task);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+}
+.section-title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--muted);
+  margin: 22px 0 10px;
+}
+.habit-list li {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 0;
+  font-size: 14px;
+  border-bottom: 1px dashed var(--border);
+}
+.habit-list li:last-child { border-bottom: none; }
+.habit-list .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent-task);
+}
+
+.task-card { border-left: 4px solid var(--accent-task); }
+.task-time {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #fef2f2;
+  color: var(--accent-task);
+  font-weight: 700;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+.task-meta {
+  display: grid; grid-template-columns: auto 1fr; gap: 4px 10px;
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.task-meta b { color: var(--text); font-weight: 600; }
+
+/* ---------- UTENTE ---------- */
+.profile {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 12px; padding: 24px 18px;
+  text-align: center;
+}
+.avatar {
+  width: 120px; height: 120px; border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: var(--shadow-strong);
+  background: #f3f4f6;
+  object-fit: cover;
+}
+.profile h2 { font-size: 22px; font-weight: 800; }
+.stats-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+  margin-top: 16px;
+  width: 100%;
+}
+.stat-box {
+  background: #faf7ff;
+  border-radius: var(--radius-sm);
+  padding: 12px 8px;
+  text-align: center;
+}
+.stat-box .num { font-size: 18px; font-weight: 800; color: var(--accent-utente); }
+.stat-box .lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .8px; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  background: var(--accent-utente);
+  color: #fff;
+  box-shadow: var(--shadow);
+  margin-top: 14px;
+}
+
+.media-card {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 12px;
+  align-items: center;
+}
+.media-cover {
+  width: 60px; height: 80px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ddd, #bbb);
+  object-fit: cover;
+}
+.stars { color: #f59e0b; letter-spacing: 2px; font-size: 14px; }
+.stars .off { color: #e5e7eb; }
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  background: #f3f4f6;
+  color: var(--muted);
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+/* ---------- CALCIO ---------- */
+.kpi-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+}
+.kpi {
+  background: #eff6ff;
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  text-align: center;
+}
+.kpi .num { font-size: 26px; font-weight: 800; color: var(--accent-calcio); }
+.kpi .lbl { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; margin-top: 2px; }
+
+.progress {
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+  height: 10px;
+  margin-top: 8px;
+}
+.progress > span {
+  display: block; height: 100%;
+  background: linear-gradient(90deg, var(--accent-calcio), #06b6d4);
+  border-radius: 999px;
+}
+
+.shoe-card {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 12px;
+  align-items: center;
+}
+.shoe-img {
+  width: 90px; height: 90px;
+  border-radius: 12px;
+  object-fit: cover;
+  background: #f3f4f6;
+}
+
+/* Infortuni — accento verde */
+.injury-section .section-title { color: var(--accent-infortuni); }
+.injury-card { border-left: 4px solid var(--accent-infortuni); background: #f0fdf4; }
+.injury-card .severity {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px;
+}
+.severity.lieve  { background: #dcfce7; color: #15803d; }
+.severity.medio  { background: #fef3c7; color: #b45309; }
+.severity.grave  { background: #fee2e2; color: #b91c1c; }
+.injury-meta {
+  display: grid; grid-template-columns: auto 1fr; gap: 4px 10px;
+  margin-top: 8px; font-size: 13px; color: var(--muted);
+}
+.injury-meta b { color: var(--text); font-weight: 600; }
+
+/* ---------- ALLENAMENTO ---------- */
+.exercise-card {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 12px;
+  border-left: 4px solid var(--accent-allenamento);
+}
+.exercise-img {
+  width: 90px; height: 90px;
+  border-radius: 12px;
+  object-fit: cover;
+  background: #f3f4f6;
+}
+.exercise-meta {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-top: 6px;
+}
+.exercise-meta .chip {
+  background: #fff7ed;
+  color: var(--accent-allenamento);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+/* ---------- PROFESSIONE (CV) ---------- */
+.cv-header {
+  text-align: center; padding: 26px 18px 18px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 22px;
+}
+.cv-header h1 { font-size: 26px; font-weight: 800; }
+.cv-header p  { color: var(--muted); margin-top: 4px; }
+.cv-section { margin-bottom: 26px; }
+.cv-section > h2 {
+  font-size: 13px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 1.5px; color: var(--accent-professione);
+  margin-bottom: 12px; border-bottom: 2px solid var(--accent-professione);
+  padding-bottom: 4px;
+}
+.cv-item { margin-bottom: 14px; }
+.cv-item h3 { font-size: 15px; font-weight: 700; }
+.cv-item .role { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+.cv-item p { font-size: 14px; color: #444; }
+
+.skills { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill {
+  background: #f1f5f9; color: var(--accent-professione);
+  font-size: 13px; font-weight: 600;
+  padding: 6px 12px; border-radius: 999px;
+}
+
+.back-link {
+  display: inline-block; margin-top: 12px;
+  color: var(--accent-professione);
+  font-weight: 700; font-size: 14px;
+}
+
+/* ---------- BOTTOM NAV ---------- */
+.bottom-nav {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-top: 1px solid var(--border);
+  padding: 8px 0 14px;
+  z-index: 100;
+}
+.bottom-nav ul {
+  display: flex; justify-content: space-around; align-items: center;
+  max-width: 520px; margin: 0 auto;
+}
+.bottom-nav a {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 6px 10px;
+  color: var(--muted);
+  font-size: 11px; font-weight: 600;
+}
+.bottom-nav .ic { font-size: 20px; }
+.bottom-nav a.active { color: var(--text); }
+body.page-task .bottom-nav a.active        { color: var(--accent-task); }
+body.page-utente .bottom-nav a.active      { color: var(--accent-utente); }
+body.page-calcio .bottom-nav a.active      { color: var(--accent-calcio); }
+body.page-allenamento .bottom-nav a.active { color: var(--accent-allenamento); }
+body.page-home .bottom-nav a.active        { color: var(--text); }
+
+/* ---------- DESKTOP ---------- */
+@media (min-width: 720px) {
+  .container { max-width: 720px; padding-top: 40px; }
+  .nav-grid { grid-template-columns: repeat(4, 1fr); }
+  .kpi-grid { grid-template-columns: repeat(4, 1fr); }
+  body { padding-bottom: 100px; }
+}

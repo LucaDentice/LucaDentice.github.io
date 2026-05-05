@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task — Sito Personale</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-task">
+
+  <main class="container">
+
+    <header class="app-header">
+      <!-- ============================ -->
+      <!-- MODIFICA QUI LA DATA ODIERNA (statica) -->
+      <!-- ============================ -->
+      <span class="date-pill">Martedì 5 Maggio 2026</span>
+      <h1 style="margin-top:10px">I tuoi task</h1>
+      <p>Abitudini quotidiane e impegni della giornata.</p>
+    </header>
+
+    <!-- ============================ -->
+    <!-- ABITUDINI GIORNALIERE — sempre presenti -->
+    <!-- AGGIUNGI / MODIFICA QUI LE ABITUDINI -->
+    <!-- ============================ -->
+    <h2 class="section-title">Abitudini giornaliere</h2>
+    <div class="card">
+      <ul class="habit-list">
+        <li><span class="dot"></span> Bere 2 litri d'acqua</li>
+        <li><span class="dot"></span> 10 minuti di lettura</li>
+        <li><span class="dot"></span> Stretching mattutino</li>
+        <li><span class="dot"></span> Meditazione 5 min</li>
+        <!-- AGGIUNGI QUI NUOVA ABITUDINE: <li><span class="dot"></span> Testo</li> -->
+      </ul>
+    </div>
+
+    <!-- ============================ -->
+    <!-- TASK DEL GIORNO -->
+    <!-- ============================ -->
+    <h2 class="section-title">Task del giorno</h2>
+
+    <!-- Esempio task -->
+    <article class="card task-card">
+      <span class="task-time">⏰ 09:00 – 10:30</span>
+      <h3>Riunione di team</h3>
+      <p>Allineamento settimanale sul progetto in corso.</p>
+      <div class="task-meta">
+        <b>👥 Partecipanti:</b><span>Marco, Laura, Andrea</span>
+        <b>📍 Location:</b><span>Sala riunioni 2</span>
+      </div>
+    </article>
+
+    <article class="card task-card">
+      <span class="task-time">⏰ Tutto il giorno</span>
+      <h3>Compleanno di Luca</h3>
+      <p>Ricordarsi di chiamare e inviare un messaggio.</p>
+      <div class="task-meta">
+        <b>👥 Partecipanti:</b><span>Luca</span>
+        <b>📍 Location:</b><span>—</span>
+      </div>
+    </article>
+
+    <article class="card task-card">
+      <span class="task-time">⏰ 18:30 – 20:00</span>
+      <h3>Allenamento</h3>
+      <p>Sessione di palestra: gambe + core.</p>
+      <div class="task-meta">
+        <b>👥 Partecipanti:</b><span>Solo</span>
+        <b>📍 Location:</b><span>Palestra Fit Center</span>
+      </div>
+    </article>
+
+    <!-- ============================ -->
+    <!-- AGGIUNGI QUI NUOVO TASK
+         Copia il blocco <article class="card task-card"> ... </article>
+    -->
+    <!-- ============================ -->
+
+  </main>
+
+  <nav class="bottom-nav" aria-label="Menu">
+    <ul>
+      <li><a href="index.html"><span class="ic">🏠</span>Home</a></li>
+      <li><a href="task.html" class="active"><span class="ic">📅</span>Task</a></li>
+      <li><a href="utente.html"><span class="ic">👤</span>Utente</a></li>
+      <li><a href="calcio.html"><span class="ic">⚽</span>Calcio</a></li>
+      <li><a href="allenamento.html"><span class="ic">🏋️</span>Workout</a></li>
+    </ul>
+  </nav>
+
+</body>
+</html>
