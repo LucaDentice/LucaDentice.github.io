@@ -10,113 +10,153 @@
 
   <main class="container">
 
-    <header class="app-header">
-      <span class="eyebrow">Workout</span>
-      <h1>🏋️ Allenamento</h1>
-      <p>Schede, stretching e circuiti.</p>
-    </header>
+    <!-- ============================================================
+         SCHERMATA INIZIALE — selezione attività
+         ============================================================ -->
+    <section id="screen-home">
+      <header class="app-header">
+        <span class="eyebrow">Workout</span>
+        <h1>🏋️ Allenamento</h1>
+        <p>Scegli l'attività di oggi.</p>
+      </header>
 
-    <!-- ============================ -->
-    <!-- SCHEDA PALESTRA -->
-    <!-- ============================ -->
-    <h2 class="section-title">💪 Scheda palestra</h2>
+      <div class="activity-grid">
+        <button class="activity-btn" data-activity="dinamico">
+          <span class="ic">🌅</span>
+          <span>Stretching dinamico</span>
+        </button>
+        <button class="activity-btn" data-activity="statico">
+          <span class="ic">🌙</span>
+          <span>Stretching statico</span>
+        </button>
+        <button class="activity-btn" data-activity="abs">
+          <span class="ic">🔥</span>
+          <span>Circuito ABS</span>
+        </button>
+        <button class="activity-btn" data-activity="allenamento">
+          <span class="ic">💪</span>
+          <span>Allenamento</span>
+        </button>
+      </div>
+    </section>
 
-    <article class="card exercise-card">
-      <img class="exercise-img" src="https://placehold.co/180x180/f97316/ffffff?text=Squat" alt="Esercizio" />
-      <div>
-        <h3>Squat con bilanciere</h3>
-        <div class="exercise-meta">
-          <span class="chip">4 serie</span>
-          <span class="chip">8 reps</span>
-          <span class="chip">80 kg</span>
+    <!-- ============================================================
+         SCHERMATA ALLENAMENTO IN CORSO
+         ============================================================ -->
+    <section id="screen-workout" hidden>
+
+      <header class="app-header">
+        <span class="eyebrow" id="workout-label">Attività</span>
+        <h1>🔴 Allenamento in corso</h1>
+      </header>
+
+      <!-- Timer sempre visibile (sticky) -->
+      <div class="timer-bar">
+        <div class="timer-display" id="timer-display">00:00</div>
+        <div class="timer-controls">
+          <button id="timer-start" class="t-btn t-start">▶ Start</button>
+          <button id="timer-stop" class="t-btn t-stop">⏸ Stop</button>
+          <button id="timer-reset" class="t-btn t-reset">⟳ Reset</button>
         </div>
       </div>
-    </article>
 
-    <article class="card exercise-card">
-      <img class="exercise-img" src="https://placehold.co/180x180/f97316/ffffff?text=Panca" alt="Esercizio" />
-      <div>
-        <h3>Panca piana</h3>
-        <div class="exercise-meta">
-          <span class="chip">4 serie</span>
-          <span class="chip">10 reps</span>
-          <span class="chip">60 kg</span>
-        </div>
-      </div>
-    </article>
+      <h2 class="section-title">Esercizi</h2>
+      <ul id="exercise-list" class="exercise-list"></ul>
 
-    <!-- AGGIUNGI QUI NUOVO ESERCIZIO PALESTRA (copia il blocco <article class="card exercise-card">) -->
-
-    <!-- ============================ -->
-    <!-- STRETCHING DINAMICO (mattina) -->
-    <!-- ============================ -->
-    <h2 class="section-title">🌅 Stretching dinamico — mattina</h2>
-
-    <article class="card exercise-card">
-      <img class="exercise-img" src="https://placehold.co/180x180/facc15/ffffff?text=Leg+Swing" alt="Esercizio" />
-      <div>
-        <h3>Leg swing</h3>
-        <div class="exercise-meta">
-          <span class="chip">2 serie</span>
-          <span class="chip">15 reps/lato</span>
-          <span class="chip">Corpo libero</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- AGGIUNGI QUI NUOVO ESERCIZIO STRETCHING DINAMICO -->
-
-    <!-- ============================ -->
-    <!-- STRETCHING STATICO (sera) -->
-    <!-- ============================ -->
-    <h2 class="section-title">🌙 Stretching statico — sera</h2>
-
-    <article class="card exercise-card">
-      <img class="exercise-img" src="https://placehold.co/180x180/8b5cf6/ffffff?text=Hamstring" alt="Esercizio" />
-      <div>
-        <h3>Allungamento ischiocrurali</h3>
-        <div class="exercise-meta">
-          <span class="chip">3 serie</span>
-          <span class="chip">30 sec</span>
-          <span class="chip">Corpo libero</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- AGGIUNGI QUI NUOVO ESERCIZIO STRETCHING STATICO -->
-
-    <!-- ============================ -->
-    <!-- CIRCUITO ADDOMINALI -->
-    <!-- ============================ -->
-    <h2 class="section-title">🔥 Circuito addominali</h2>
-
-    <article class="card exercise-card">
-      <img class="exercise-img" src="https://placehold.co/180x180/ef4444/ffffff?text=Plank" alt="Esercizio" />
-      <div>
-        <h3>Plank</h3>
-        <div class="exercise-meta">
-          <span class="chip">3 serie</span>
-          <span class="chip">45 sec</span>
-          <span class="chip">Corpo libero</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="card exercise-card">
-      <img class="exercise-img" src="https://placehold.co/180x180/ef4444/ffffff?text=Crunch" alt="Esercizio" />
-      <div>
-        <h3>Crunch</h3>
-        <div class="exercise-meta">
-          <span class="chip">3 serie</span>
-          <span class="chip">20 reps</span>
-          <span class="chip">Corpo libero</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- AGGIUNGI QUI NUOVO ESERCIZIO CIRCUITO ADDOMINALI -->
+      <button id="exit-workout" class="btn btn-secondary" style="margin-top:14px">⨉ Esci dall'allenamento</button>
+    </section>
 
   </main>
+
+  <!-- ============================================================
+       LISTE ESERCIZI — modifica liberamente
+       Ogni esercizio: data-name, data-sets, data-reps, data-weight
+       ============================================================ -->
+
+  <!-- STRETCHING DINAMICO -->
+  <template id="ex-dinamico">
+    <li data-name="Leg swing" data-sets="2" data-reps="15/lato" data-weight="Corpo libero"></li>
+    <li data-name="Arm circles" data-sets="2" data-reps="20" data-weight="Corpo libero"></li>
+    <li data-name="High knees" data-sets="2" data-reps="30 sec" data-weight="Corpo libero"></li>
+    <!-- AGGIUNGI QUI NUOVO ESERCIZIO STRETCHING DINAMICO -->
+  </template>
+
+  <!-- STRETCHING STATICO -->
+  <template id="ex-statico">
+    <li data-name="Allungamento ischiocrurali" data-sets="3" data-reps="30 sec" data-weight="Corpo libero"></li>
+    <li data-name="Allungamento quadricipiti" data-sets="3" data-reps="30 sec" data-weight="Corpo libero"></li>
+    <li data-name="Allungamento polpacci" data-sets="3" data-reps="30 sec" data-weight="Corpo libero"></li>
+    <!-- AGGIUNGI QUI NUOVO ESERCIZIO STRETCHING STATICO -->
+  </template>
+
+  <!-- CIRCUITO ABS -->
+  <template id="ex-abs">
+    <li data-name="Plank" data-sets="3" data-reps="45 sec" data-weight="Corpo libero"></li>
+    <li data-name="Crunch" data-sets="3" data-reps="20" data-weight="Corpo libero"></li>
+    <li data-name="Russian twist" data-sets="3" data-reps="20" data-weight="5 kg"></li>
+    <!-- AGGIUNGI QUI NUOVO ESERCIZIO CIRCUITO ABS -->
+  </template>
+
+  <!-- ============================================================
+       ALLENAMENTO GIORNALIERO
+       Una scheda per ogni giorno della settimana.
+       Lo script seleziona automaticamente quella corrispondente
+       al giorno corrente (data-day = 0 dom ... 6 sab).
+       Per usarne una diversa, decommentare quella desiderata
+       e commentare le altre.
+       ============================================================ -->
+
+  <!-- LUNEDÌ — Petto / Tricipiti -->
+  <template id="ex-allenamento-1" data-label="Lunedì — Petto / Tricipiti">
+    <li data-name="Panca piana" data-sets="4" data-reps="8" data-weight="60 kg"></li>
+    <li data-name="Panca inclinata manubri" data-sets="3" data-reps="10" data-weight="22 kg"></li>
+    <li data-name="French press" data-sets="3" data-reps="12" data-weight="20 kg"></li>
+    <!-- AGGIUNGI QUI NUOVO ESERCIZIO LUNEDÌ -->
+  </template>
+
+  <!-- MARTEDÌ — Schiena / Bicipiti -->
+  <template id="ex-allenamento-2" data-label="Martedì — Schiena / Bicipiti">
+    <li data-name="Trazioni" data-sets="4" data-reps="6" data-weight="Corpo libero"></li>
+    <li data-name="Rematore bilanciere" data-sets="3" data-reps="10" data-weight="50 kg"></li>
+    <li data-name="Curl bilanciere" data-sets="3" data-reps="12" data-weight="25 kg"></li>
+    <!-- AGGIUNGI QUI NUOVO ESERCIZIO MARTEDÌ -->
+  </template>
+
+  <!-- MERCOLEDÌ — Riposo attivo -->
+  <template id="ex-allenamento-3" data-label="Mercoledì — Riposo attivo">
+    <li data-name="Camminata veloce" data-sets="1" data-reps="30 min" data-weight="—"></li>
+    <li data-name="Mobilità anche" data-sets="3" data-reps="10/lato" data-weight="Corpo libero"></li>
+    <!-- AGGIUNGI QUI NUOVO ESERCIZIO MERCOLEDÌ -->
+  </template>
+
+  <!-- GIOVEDÌ — Gambe -->
+  <template id="ex-allenamento-4" data-label="Giovedì — Gambe">
+    <li data-name="Squat con bilanciere" data-sets="4" data-reps="8" data-weight="80 kg"></li>
+    <li data-name="Affondi manubri" data-sets="3" data-reps="10/lato" data-weight="16 kg"></li>
+    <li data-name="Calf raise" data-sets="4" data-reps="15" data-weight="40 kg"></li>
+    <!-- AGGIUNGI QUI NUOVO ESERCIZIO GIOVEDÌ -->
+  </template>
+
+  <!-- VENERDÌ — Spalle / Core -->
+  <template id="ex-allenamento-5" data-label="Venerdì — Spalle / Core">
+    <li data-name="Military press" data-sets="4" data-reps="8" data-weight="35 kg"></li>
+    <li data-name="Alzate laterali" data-sets="3" data-reps="12" data-weight="8 kg"></li>
+    <li data-name="Plank" data-sets="3" data-reps="60 sec" data-weight="Corpo libero"></li>
+    <!-- AGGIUNGI QUI NUOVO ESERCIZIO VENERDÌ -->
+  </template>
+
+  <!-- SABATO — Full body -->
+  <template id="ex-allenamento-6" data-label="Sabato — Full body">
+    <li data-name="Stacco da terra" data-sets="4" data-reps="6" data-weight="90 kg"></li>
+    <li data-name="Push press" data-sets="3" data-reps="8" data-weight="40 kg"></li>
+    <!-- AGGIUNGI QUI NUOVO ESERCIZIO SABATO -->
+  </template>
+
+  <!-- DOMENICA — Riposo / mobilità -->
+  <template id="ex-allenamento-0" data-label="Domenica — Mobilità">
+    <li data-name="Mobilità completa" data-sets="1" data-reps="20 min" data-weight="—"></li>
+    <!-- AGGIUNGI QUI NUOVO ESERCIZIO DOMENICA -->
+  </template>
 
   <nav class="bottom-nav" aria-label="Menu">
     <ul>
@@ -128,5 +168,6 @@
     </ul>
   </nav>
 
+  <script src="script.js"></script>
 </body>
 </html>

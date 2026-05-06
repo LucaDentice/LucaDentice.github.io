@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Infortuni — Sito Personale</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-infortuni">
+
+  <main class="container">
+
+    <header class="app-header">
+      <span class="eyebrow">Salute</span>
+      <h1>🏥 Infortuni</h1>
+      <p>Stato attuale e storico.</p>
+      <a class="back-link" href="calcio.html">← Torna a Calcio</a>
+    </header>
+
+    <!-- ======================================================== -->
+    <!-- STATO ATTUALE                                            -->
+    <!-- Per gestire lo stato infortunato/non infortunato:        -->
+    <!--   - se NON sei infortunato: lascia così com'è            -->
+    <!--   - se SEI infortunato: COMMENTA il blocco "ok"          -->
+    <!--     e DECOMMENTA il blocco "infortunio attivo"           -->
+    <!-- ======================================================== -->
+    <h2 class="section-title">Stato attuale</h2>
+
+    <!-- BLOCCO: NESSUN INFORTUNIO (default) -->
+    <article class="card status-ok">
+      <h3>✅ Tutto bene, continua così 💪</h3>
+      <p style="margin-top:6px">Nessun infortunio attivo. Mantieni la routine!</p>
+    </article>
+
+    <!-- BLOCCO: INFORTUNIO ATTIVO (decommentare quando serve)
+    <article class="card status-injured">
+      <h3>💪 Forza, ne uscirai più forte di prima!</h3>
+      <div class="injury-meta" style="margin-top:10px">
+        <b>🩹 Tipo:</b><span>Distorsione caviglia</span>
+        <b>📅 Inizio:</b><span>10/03/2026</span>
+        <b>📝 Note:</b><span>Stop totale 10 giorni, poi riabilitazione.</span>
+      </div>
+    </article>
+    -->
+
+    <!-- ======================================================== -->
+    <!-- STORICO INFORTUNI — un <details> per anno                -->
+    <!-- AGGIUNGI INFORTUNI QUI                                   -->
+    <!-- ======================================================== -->
+    <h2 class="section-title">📅 Storico</h2>
+
+    <details class="collapsible" open>
+      <summary>2026</summary>
+      <div class="collapsible-body">
+
+        <article class="card injury-card">
+          <h3>Distorsione caviglia</h3>
+          <div class="injury-meta">
+            <b>⏱ Durata:</b><span>18 giorni</span>
+            <b>📝 Note:</b><span>Stop totale 10 giorni, poi riabilitazione.</span>
+          </div>
+        </article>
+
+        <article class="card injury-card">
+          <h3>Contrattura polpaccio</h3>
+          <div class="injury-meta">
+            <b>⏱ Durata:</b><span>4 giorni</span>
+            <b>📝 Note:</b><span>Defaticamento e massaggio decontratturante.</span>
+          </div>
+        </article>
+
+        <!-- AGGIUNGI INFORTUNI QUI (anno 2026) -->
+
+      </div>
+    </details>
+
+    <details class="collapsible">
+      <summary>2025</summary>
+      <div class="collapsible-body">
+
+        <article class="card injury-card">
+          <h3>Stiramento flessori</h3>
+          <div class="injury-meta">
+            <b>⏱ Durata:</b><span>21 giorni</span>
+            <b>📝 Note:</b><span>Fisioterapia 3 volte a settimana.</span>
+          </div>
+        </article>
+
+        <!-- AGGIUNGI INFORTUNI QUI (anno 2025) -->
+
+      </div>
+    </details>
+
+    <!-- AGGIUNGI QUI NUOVO ANNO (copia il blocco <details class="collapsible">) -->
+
+  </main>
+
+  <nav class="bottom-nav" aria-label="Menu">
+    <ul>
+      <li><a href="index.html"><span class="ic">🏠</span>Home</a></li>
+      <li><a href="task.html"><span class="ic">📅</span>Task</a></li>
+      <li><a href="utente.html"><span class="ic">👤</span>Utente</a></li>
+      <li><a href="calcio.html"><span class="ic">⚽</span>Calcio</a></li>
+      <li><a href="allenamento.html"><span class="ic">🏋️</span>Workout</a></li>
+    </ul>
+  </nav>
+
+</body>
+</html>

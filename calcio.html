@@ -13,18 +13,66 @@
     <header class="app-header">
       <span class="eyebrow">Stagione 2025/26</span>
       <h1>⚽ Calcio</h1>
-      <p>Statistiche, allenamenti, scarpe e infortuni.</p>
+      <p>Statistiche, allenamenti e scarpe.</p>
     </header>
 
     <!-- ============================ -->
-    <!-- STATISTICHE PARTITA — modifica i numeri -->
+    <!-- STATISTICHE GLOBALI — modifica i numeri -->
     <!-- ============================ -->
-    <h2 class="section-title">Statistiche partita</h2>
+    <h2 class="section-title">Statistiche globali</h2>
     <div class="kpi-grid">
-      <div class="kpi"><div class="num">18</div><div class="lbl">Presenze</div></div>
-      <div class="kpi"><div class="num">1420</div><div class="lbl">Minuti</div></div>
-      <div class="kpi"><div class="num">7</div><div class="lbl">Gol</div></div>
-      <div class="kpi"><div class="num">4</div><div class="lbl">Assist</div></div>
+      <div class="kpi"><div class="num">22</div><div class="lbl">Presenze tot.</div></div>
+      <div class="kpi"><div class="num">1720</div><div class="lbl">Minuti</div></div>
+      <div class="kpi"><div class="num">8</div><div class="lbl">Gol</div></div>
+      <div class="kpi"><div class="num">5</div><div class="lbl">Assist</div></div>
+    </div>
+
+    <!-- ============================ -->
+    <!-- DETTAGLIO PRESENZE -->
+    <!-- ============================ -->
+    <h2 class="section-title">📊 Dettaglio presenze</h2>
+
+    <div class="card">
+      <h3 style="margin-bottom:10px">Tipo di impiego</h3>
+      <div class="kpi-grid kpi-grid-3">
+        <div class="kpi"><div class="num">16</div><div class="lbl">Da titolare</div></div>
+        <div class="kpi"><div class="num">6</div><div class="lbl">Da subentrato</div></div>
+        <div class="kpi"><div class="num">4</div><div class="lbl">Sostituito</div></div>
+      </div>
+    </div>
+
+    <!-- Suddivisione campionato vs coppa -->
+    <div class="card">
+      <h3 style="margin-bottom:10px">Campionato</h3>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="num">18</div><div class="lbl">Presenze</div></div>
+        <div class="kpi"><div class="num">14</div><div class="lbl">Titolare</div></div>
+        <div class="kpi"><div class="num">7</div><div class="lbl">Gol</div></div>
+        <div class="kpi"><div class="num">4</div><div class="lbl">Assist</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-bottom:10px">Coppa</h3>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="num">4</div><div class="lbl">Presenze</div></div>
+        <div class="kpi"><div class="num">2</div><div class="lbl">Titolare</div></div>
+        <div class="kpi"><div class="num">1</div><div class="lbl">Gol</div></div>
+        <div class="kpi"><div class="num">1</div><div class="lbl">Assist</div></div>
+      </div>
+    </div>
+
+    <!-- ============================ -->
+    <!-- RUOLI GIOCATI — aggiungi/rimuovi tag -->
+    <!-- ============================ -->
+    <div class="card">
+      <h3 style="margin-bottom:10px">🎯 Ruoli giocati</h3>
+      <div class="tag-group">
+        <span class="tag">Difensore Centrale</span>
+        <span class="tag">Braccetto</span>
+        <span class="tag">Terzino Sinistro</span>
+        <!-- AGGIUNGI QUI NUOVO RUOLO: <span class="tag">Nome ruolo</span> -->
+      </div>
     </div>
 
     <!-- ============================ -->
@@ -42,70 +90,39 @@
     </div>
 
     <!-- ============================ -->
-    <!-- SCARPE DA CALCIO -->
+    <!-- SCARPE DA CALCIO — sezione collapsable (details/summary) -->
     <!-- ============================ -->
-    <h2 class="section-title">👟 Scarpe da calcio</h2>
+    <details class="collapsible">
+      <summary>👟 Scarpe da calcio</summary>
+      <div class="collapsible-body">
 
-    <article class="card shoe-card">
-      <img class="shoe-img" src="https://placehold.co/180x180/2563eb/ffffff?text=Scarpa" alt="Scarpa" />
-      <div>
-        <h3>Mercurial Vapor 15</h3>
-        <p style="font-size:13px">Nike</p>
-        <span class="tag">Utilizzi: 32 (24 all. + 8 part.)</span>
+        <article class="card shoe-card">
+          <img class="shoe-img" src="https://placehold.co/180x180/2563eb/ffffff?text=Scarpa" alt="Scarpa" />
+          <div>
+            <h3>Mercurial Vapor 15</h3>
+            <p style="font-size:13px">Nike</p>
+            <span class="tag">Utilizzi: 32 (24 all. + 8 part.)</span>
+          </div>
+        </article>
+
+        <article class="card shoe-card">
+          <img class="shoe-img" src="https://placehold.co/180x180/06b6d4/ffffff?text=Scarpa" alt="Scarpa" />
+          <div>
+            <h3>Predator Edge</h3>
+            <p style="font-size:13px">Adidas</p>
+            <span class="tag">Utilizzi: 18 (14 all. + 4 part.)</span>
+          </div>
+        </article>
+
+        <!-- AGGIUNGI QUI NUOVA SCARPA (copia il blocco <article class="card shoe-card">) -->
+
       </div>
-    </article>
-
-    <article class="card shoe-card">
-      <img class="shoe-img" src="https://placehold.co/180x180/06b6d4/ffffff?text=Scarpa" alt="Scarpa" />
-      <div>
-        <h3>Predator Edge</h3>
-        <p style="font-size:13px">Adidas</p>
-        <span class="tag">Utilizzi: 18 (14 all. + 4 part.)</span>
-      </div>
-    </article>
+    </details>
 
     <!-- ============================ -->
-    <!-- AGGIUNGI QUI NUOVA SCARPA (copia il blocco <article class="card shoe-card">) -->
+    <!-- LINK A INFORTUNI (pagina separata) -->
     <!-- ============================ -->
-
-    <!-- ============================ -->
-    <!-- INFORTUNI (sezione verde) -->
-    <!-- ============================ -->
-    <section class="injury-section">
-      <h2 class="section-title">🏥 Infortuni</h2>
-
-      <article class="card injury-card">
-        <div class="card-title-row">
-          <h3>Distorsione caviglia</h3>
-          <span class="severity medio">Medio</span>
-        </div>
-        <div class="injury-meta">
-          <b>📅 Inizio:</b><span>10/03/2026</span>
-          <b>📅 Fine:</b><span>28/03/2026 (18 giorni)</span>
-          <b>🦵 Parte:</b><span>Caviglia destra</span>
-        </div>
-        <p style="margin-top:8px">Note: stop totale 10 giorni, poi riabilitazione.</p>
-      </article>
-
-      <article class="card injury-card">
-        <div class="card-title-row">
-          <h3>Contrattura polpaccio</h3>
-          <span class="severity lieve">Lieve</span>
-        </div>
-        <div class="injury-meta">
-          <b>📅 Inizio:</b><span>05/01/2026</span>
-          <b>📅 Fine:</b><span>09/01/2026 (4 giorni)</span>
-          <b>🦵 Parte:</b><span>Polpaccio sinistro</span>
-        </div>
-        <p style="margin-top:8px">Note: defaticamento e massaggio decontratturante.</p>
-      </article>
-
-      <!-- ============================ -->
-      <!-- AGGIUNGI QUI NUOVO INFORTUNIO
-           Severità disponibili: lieve | medio | grave
-      -->
-      <!-- ============================ -->
-    </section>
+    <a class="btn btn-injury" href="infortuni.html">🏥 Vai alla sezione infortuni</a>
 
   </main>
 

@@ -396,3 +396,166 @@ body.page-home .bottom-nav a.active        { color: var(--text); }
   .kpi-grid { grid-template-columns: repeat(4, 1fr); }
   body { padding-bottom: 100px; }
 }
+
+/* =========================================================
+   ESTENSIONI v2 — Cultura, Infortuni, Workout interattivo
+   ========================================================= */
+
+/* Sfondo per la pagina infortuni (verde) */
+body.page-infortuni::before {
+  background: linear-gradient(180deg, rgba(22,163,74,.20), rgba(255,255,255,0));
+}
+
+/* Bottone secondario e variante infortunio */
+.btn-secondary {
+  background: #f3f4f6;
+  color: var(--text);
+  margin-top: 8px;
+}
+.btn-injury {
+  background: var(--accent-infortuni);
+  color: #fff;
+  margin-top: 14px;
+}
+
+/* Link "indietro" nelle pagine di dettaglio */
+.back-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* Gruppo di tag (ruoli) */
+.tag-group { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* Griglia KPI a 3 colonne (per "Tipo di impiego") */
+.kpi-grid-3 { grid-template-columns: repeat(3, 1fr) !important; }
+
+/* ---------- COLLAPSIBLE (details/summary) ---------- */
+.collapsible {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.collapsible > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 16px 18px;
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.collapsible > summary::-webkit-details-marker { display: none; }
+.collapsible > summary::after {
+  content: "▾";
+  font-size: 14px;
+  color: var(--muted);
+  transition: transform .2s ease;
+}
+.collapsible[open] > summary::after { transform: rotate(180deg); }
+.collapsible-body { padding: 0 14px 14px; }
+
+/* ---------- STATO INFORTUNIO ---------- */
+.status-ok {
+  border-left: 5px solid var(--accent-infortuni);
+  background: #f0fdf4;
+}
+.status-injured {
+  border-left: 5px solid #f59e0b;
+  background: #fffbeb;
+}
+
+/* ---------- WORKOUT: schermata attività ---------- */
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 6px;
+}
+.activity-btn {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px 12px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.activity-btn .ic { font-size: 28px; }
+.activity-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-strong); }
+.activity-btn:active { transform: translateY(0); }
+
+/* ---------- TIMER ---------- */
+.timer-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-strong);
+  padding: 14px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+.timer-display {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-allenamento);
+}
+.timer-controls { display: flex; gap: 8px; margin-top: 10px; justify-content: center; }
+.t-btn {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 0;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  color: #fff;
+}
+.t-start { background: #16a34a; }
+.t-stop  { background: #ef4444; }
+.t-reset { background: #6b7280; }
+
+/* ---------- LISTA ESERCIZI INTERATTIVA ---------- */
+.exercise-list { display: flex; flex-direction: column; gap: 10px; }
+.exercise-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px;
+  transition: opacity .25s ease, transform .25s ease;
+}
+.exercise-item.done { opacity: 0; transform: translateX(20px); }
+.ex-row { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; }
+.ex-check {
+  width: 22px; height: 22px; margin-top: 2px;
+  accent-color: var(--accent-allenamento);
+  flex-shrink: 0;
+}
+.ex-info h3 { font-size: 16px; margin-bottom: 6px; }
+
+/* Compatta i KPI quando sono in griglia a 3 colonne */
+.kpi-grid-3 .kpi { padding: 12px 6px; }
+.kpi-grid-3 .kpi .num { font-size: 22px; }
+.kpi-grid-3 .kpi .lbl { font-size: 10px; }
